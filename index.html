@@ -336,8 +336,25 @@
   @media (max-width: 1100px) { .v-page .hero__copy { top: calc(4.6rem + env(safe-area-inset-top, 0px)); } }
   /* телефон: подзаголовок убран, чтобы текст не заходил на лица группы; холст под текстом плотнее */
   @media (max-width: 600px) {
-    .hero__copy .v-lede { display: none; }
-    .hero__col { background: linear-gradient(to bottom, var(--v-canvas) 0%, var(--v-canvas) 50%, transparent 62%); }
+    .hero__copy .v-lede, .hero__copy .consent-note { display: none; }
+    .v-page .hero__copy { top: calc(4.2rem + env(safe-area-inset-top, 0px)); }
+    .hero__copy .v-display { font-size: clamp(1.55rem, .9rem + 3.4vw, 2rem); }
+    .hero__label { margin-bottom: var(--v-2); }
+    /* фото ниже текста: головы группы видны, а не обрезаны (iPhone с адресной строкой даёт экран ниже 700 px) */
+    .hero__back { height: 58%; }
+    .hero__back img { object-position: center 85%; }
+    .hero__col { background: linear-gradient(to bottom, var(--v-canvas) 0%, var(--v-canvas) 44%, transparent 54%); }
+  }
+  /* невысокий телефон (iPhone с адресной строкой): телефон в первом экране убираем, он есть в шапке записи внизу страницы */
+  @media (max-width: 600px) and (max-height: 760px) {
+    .hero__tel { display: none; }
+    .hero__back { height: 52%; }
+    .hero__col { background: linear-gradient(to bottom, var(--v-canvas) 0%, var(--v-canvas) 46%, transparent 55%); }
+  }
+  /* телефон: фото «разговор» квадратное и с головами в кадре (раньше головы обрезались сверху) */
+  @media (max-width: 860px) {
+    .first__fig { aspect-ratio: 1 / 1; }
+    .first__fig img { object-position: center 35%; }
   }
   @media (max-width: 860px) {
     .ba { padding-top: calc(4.6rem + env(safe-area-inset-top, 0px)); }
